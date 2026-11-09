@@ -1,0 +1,19 @@
+command:
+  - uvicorn
+  - app:app
+  - --host
+  - 0.0.0.0
+  - --port
+  - "8000"
+
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    value: "<warehouse-id>"
+  - name: APP_CATALOG
+    value: "customer_segmentation"
+
+resources:
+  - name: sql-warehouse
+    sql_warehouse:
+      id: "<warehouse-id>"
+      permission: CAN_USE
